@@ -10,49 +10,49 @@ const middleware = require('../midelware/token.midelware');
 
 const route = Router();
 // Sucursales
-route.get('/sucursales', sucursal_controller.getConsulta );
-route.post('/sucursales', sucursal_controller.postingresarSucursal);
-route.delete('/sucursales', sucursal_controller.deleteSucursal);
-route.put('/sucursales', sucursal_controller.putActualizarSucursal);
+route.get('/sucursales',middleware.protegerRuta, sucursal_controller.getConsulta );
+route.post('/sucursales',middleware.protegerRuta, sucursal_controller.postingresarSucursal);
+route.delete('/sucursales',middleware.protegerRuta, sucursal_controller.deleteSucursal);
+route.put('/sucursales',middleware.protegerRuta, sucursal_controller.putActualizarSucursal);
 
 // Nodos
 
-route.get('/nodos', nodo_controller.getConsultar);
+route.get('/nodos',middleware.protegerRuta, nodo_controller.getConsultar);
 
 
-route.post('/nodos', nodo_controller.postingresarNodo);
-route.delete('/nodos', nodo_controller.deleteNodo);
-route.put('/nodos', nodo_controller.putActualizarNodo);
+route.post('/nodos',middleware.protegerRuta, nodo_controller.postingresarNodo);
+route.delete('/nodos',middleware.protegerRuta, nodo_controller.deleteNodo);
+route.put('/nodos',middleware.protegerRuta, nodo_controller.putActualizarNodo);
 
 //Server
 
-route.get('/server', server_controller.getConsultarServer);
-route.post('/server', server_controller.postingresarServer);
-route.delete('/server', server_controller.deleteServer);
-route.put('/server', server_controller.putActualizarServer);
+route.get('/server',middleware.protegerRuta, server_controller.getConsultarServer);
+route.post('/server',middleware.protegerRuta, server_controller.postingresarServer);
+route.delete('/server',middleware.protegerRuta, server_controller.deleteServer);
+route.put('/server',middleware.protegerRuta, server_controller.putActualizarServer);
 
 //Cliente
 
 route.get('/cliente', middleware.protegerRuta, cliente_controller.getConsultarCliente);
-route.post('/cliente', cliente_controller.postingresasCliente);
-route.delete('/cliente', cliente_controller.deleteCliente);
-route.put('/cliente', cliente_controller.putactualizarCliente);
+route.post('/cliente',middleware.protegerRuta, cliente_controller.postingresasCliente);
+route.delete('/cliente',middleware.protegerRuta, cliente_controller.deleteCliente);
+route.put('/cliente',middleware.protegerRuta, cliente_controller.putactualizarCliente);
 
 
 //Ip
-route.get('/ip', ip_controller.getConsultarIp);
-route.post('/ip', ip_controller.postingresarIps);
-route.delete('/ip', ip_controller.deleteIps);
-route.put('/ip', ip_controller.putactualizarIps);
+route.get('/ip',middleware.protegerRuta, ip_controller.getConsultarIp);
+route.post('/ip',middleware.protegerRuta, ip_controller.postingresarIps);
+route.delete('/ip',middleware.protegerRuta, ip_controller.deleteIps);
+route.put('/ip',middleware.protegerRuta, ip_controller.putactualizarIps);
 
 //Cliente-Servidor
-route.get('/cliente_servidor', cliente_servidor_model.getConsultarClienteServidor);
-route.post('/cliente_servidor', cliente_servidor_model.postingresarClienteServidor,);
-route.put('/cliente_servidor', cliente_servidor_model.putactualizarClienteServidor);
-route.delete('/cliente_servidor', cliente_servidor_model.deleteClienteServidor);
+route.get('/cliente_servidor',middleware.protegerRuta, cliente_servidor_model.getConsultarClienteServidor);
+route.post('/cliente_servidor',middleware.protegerRuta, cliente_servidor_model.postingresarClienteServidor,);
+route.put('/cliente_servidor',middleware.protegerRuta, cliente_servidor_model.putactualizarClienteServidor);
+route.delete('/cliente_servidor',middleware.protegerRuta, cliente_servidor_model.deleteClienteServidor);
 
 //Usuario y Contraseña
-route.post('/login', cliente_controller.postUsuarioContraseña);
+route.post('/login',cliente_controller.postUsuarioContraseña);
 
 //Token
 

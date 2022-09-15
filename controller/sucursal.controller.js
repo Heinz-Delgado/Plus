@@ -33,7 +33,8 @@ async function deleteSucursal(req, res){
 async function putActualizarSucursal(req, res) {
     try {
         let actualizar = req.body.sucursales;
-        actualizar = await sucursal_model.putActualizarSucursal(actualizar);
+        let id_sucursal = req.body.id_sucursal;
+        actualizar = await sucursal_model.putActualizarSucursal(id_sucursal, actualizar);
         res.status(200).send({status: 200,sucursal: actualizar,});
     } catch (error) {
         res.status(500).send({status: 500, error: error.message});

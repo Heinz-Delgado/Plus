@@ -12,10 +12,10 @@ async function getConsultarCliente(req,res){
     }
 }
 async function postingresasCliente(req,res) { 
-    const {nombres_cliente, clave_publica_cliente,usuario,contraseña} = req.body;
+    const {nombres_cliente, clave_publica_cliente,usuario,contrasena} = req.body;
     try {
         
-        const servers = await cliente_model.postingresasCliente(nombres_cliente, clave_publica_cliente,usuario,contraseña);
+        const servers = await cliente_model.postingresasCliente(nombres_cliente, clave_publica_cliente,usuario,contrasena);
         res.status(200).send({mensaje: 'Cliente ingresado correctamente'});
     } catch (error) {
         res.status(500).send({status: 500, error: error.message});
@@ -23,6 +23,7 @@ async function postingresasCliente(req,res) {
 }
 async function deleteCliente(req, res){
     const {id_cliente} = req.body;
+    console.log(id_cliente)
     try {
 
         const servers =  await cliente_model.deleteCliente(id_cliente);
@@ -35,10 +36,10 @@ async function deleteCliente(req, res){
     }
 }
 async function putactualizarCliente(req, res){
-    const {id_cliente, nombres_cliente, clave_publica_cliente,usuario,contraseña} = req.body;
+    const {id_cliente, nombres_cliente, clave_publica_cliente,usuario,contrasena} = req.body;
     try {
 
-        const servers =  await cliente_model.putactualizarCliente(id_cliente, nombres_cliente, clave_publica_cliente,usuario,contraseña);
+        const servers =  await cliente_model.putactualizarCliente(id_cliente, nombres_cliente, clave_publica_cliente,usuario,contrasena);
         res.status(200).send({mensaje: 'Cliente actualizado correctamente'});
         
     } catch (error) {
@@ -50,6 +51,7 @@ async function putactualizarCliente(req, res){
 
 async function postUsuarioContraseña(req,res) { 
     const {usuario,contrasena} = req.body;
+    console.log(usuario,contrasena);
     try {
         const servers = await cliente_model.postUsuarioContraseña(usuario);
         if (servers != undefined ){

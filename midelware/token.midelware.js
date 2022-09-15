@@ -14,6 +14,7 @@ function validarToken(token) {
 
 function protegerRuta(req, res, next) {
     const token = req.headers['access-token'];
+    console.log(token);
     if (token)
     {
         const codigo = validarToken(token);

@@ -7,6 +7,7 @@ async function consultaClientes (){
 }
 
 async function postingresasCliente(nombres_cliente, clave_publica_cliente,usuario,contrasena) {
+    console.log(nombres_cliente, clave_publica_cliente,usuario,contrasena);
     const query = 'INSERT INTO public.cliente(nombres_cliente, clave_publica_cliente ,usuario, contrasena)VALUES ( $1, $2, $3, $4);'
     const servers = await plus.query(query, [nombres_cliente, clave_publica_cliente,usuario,contrasena]);   
     return servers.rows;    
