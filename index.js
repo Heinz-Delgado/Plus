@@ -15,7 +15,7 @@
 //     next();
 // });
 
-// app.use(require('./routes/routes'))
+ app.use(require('./routes/routes'))
 
  app.listen(PORT, () => {
      console.log(`Servidor se encuentra en //http://localhost:${PORT}`);
